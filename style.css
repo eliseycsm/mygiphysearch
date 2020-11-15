@@ -1,0 +1,16 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+    color: white;
+}
+
+button {
+    display:block;
+    background-color: grey;
+    padding: .25em;
+    color: white;
+}
