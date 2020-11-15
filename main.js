@@ -19,6 +19,8 @@ const app = express()
 app.engine('hbs', handlebars({defaultLayout: 'default.hbs'}))
 app.set('view engine', 'hbs')
 app.set('views', __dirname + '/views')
+//mount static files from dir
+app.use(express.static(__dirname)) 
 
 if(API_KEY) {  //if no apiKey return error
     //start express and server
@@ -41,7 +43,7 @@ app.get(["/", "/index.html"], (req, resp) => {
 
 const imagesRetrieved = (dataArr) => {
     return dataArr.data.map(d => {
-        return { title: d.title, url: d.images.fixed_height.url }
+        return { title: (d.title || 'no title available'), url: d.images.fixed_height.url }
         }
     )}
 
@@ -62,7 +64,7 @@ app.get('/search',
         const imageList = imagesRetrieved(p)
         resp.status(200)
         resp.type('text/html')
-        resp.render("result_again", {
+        resp.render("result", {
             searchTerm: search,
             img: imageList,
             hasContent: !! (imageList.length > 0) 

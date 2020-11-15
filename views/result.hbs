@@ -1,11 +1,13 @@
-<h1>Your search of : {{ searchTerm }}</h1>
+<h3>Your search for : {{ searchTerm }}</h3>
 <hr>
 
 {{#if hasContent}}
     {{#each img}}
-        <div>
-            <h5>{{ this.title }}</h5>
-            <img src={{this.url}} alt="">
+        <div class="card">
+            <img src={{this.url}} alt="" class="card-img-top">
+            <div class="card-body">
+                <h5 class="card-title">{{ this.title }}</h5>
+            </div>
         </div>
         
     {{/each}} 
