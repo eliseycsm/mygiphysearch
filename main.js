@@ -9,7 +9,7 @@ const withQuery = require('with-query').default
 
 
 //CONST
-const PORT = parseInt(process.argv[2]) || parseInt(process.env.PORT) || 3000
+const PORT = parseInt(process.argv[2]) || parseInt(process.env.PORT) || ''
 const API_KEY = process.env.API_KEY || ""  
 
 //set up express instance
